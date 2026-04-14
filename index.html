@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, 
+                   initial-scale=1.0">
+    <title>Ireland ESG Emissions Tracker</title>
+    <style>
+        * { margin: 0; padding: 0; 
+            box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Segoe UI', sans-serif;
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+        
+        .hero {
+            background: linear-gradient(
+                135deg, #2c3e50, #27ae60);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .badges {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            border-left: 4px solid #27ae60;
+            padding-left: 15px;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: 
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 15px 
+                        rgba(0,0,0,0.08);
+            border-top: 4px solid #27ae60;
+        }
+        
+        .card.red { 
+            border-top-color: #e74c3c; 
+        }
+        
+        .card.orange { 
+            border-top-color: #f39c12; 
+        }
+        
+        .card.blue { 
+            border-top-color: #3498db; 
+        }
+        
+        .card .number {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .card .label {
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+        
+        .findings {
+            display: grid;
+            grid-template-columns: 
+                repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .finding {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 15px 
+                        rgba(0,0,0,0.08);
+        }
+        
+        .finding h3 {
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+        
+        .finding p {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 50px;
+        }
+        
+        .tool {
+            background: white;
+            border: 2px solid #27ae60;
+            color: #27ae60;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .cta {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        
+        .cta h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .cta p {
+            opacity: 0.8;
+            margin-bottom: 25px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+            transition: opacity 0.2s;
+        }
+        
+        .btn:hover { opacity: 0.85; }
+        
+        .btn.outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    <h1>🌍 Ireland ESG Emissions Tracker</h1>
+    <p>
+        An end-to-end ESG data analysis project 
+        tracking Ireland's carbon emissions and 
+        renewable energy progress against the 
+        2030 Climate Action Plan targets
+    </p>
+    <div class="badges">
+        <span class="badge">🐍 Python</span>
+        <span class="badge">🗄️ PostgreSQL</span>
+        <span class="badge">📊 Power BI</span>
+        <span class="badge">🤖 Machine Learning</span>
+        <span class="badge">🌱 ESG Analysis</span>
+    </div>
+</div>
+
+<!-- KPI SECTION -->
+<div class="container">
+    <h2 class="section-title">
+        📈 Key Metrics
+    </h2>
+    <div class="cards">
+        <div class="card red">
+            <div class="number">53.75 Mt</div>
+            <div class="label">
+                Ireland's GHG Emissions 2024
+            </div>
+        </div>
+        <div class="card red">
+            <div class="number">23.62 Mt</div>
+            <div class="label">
+                Gap To 2030 Target
+            </div>
+        </div>
+        <div class="card">
+            <div class="number">14.60%</div>
+            <div class="label">
+                Renewable Energy 2024
+            </div>
+        </div>
+        <div class="card orange">
+            <div class="number">37.97%</div>
+            <div class="label">
+                Agriculture Share of Emissions
+            </div>
+        </div>
+        <div class="card blue">
+            <div class="number">52.49 Mt</div>
+            <div class="label">
+                ML Forecast 2030
+            </div>
+        </div>
+        <div class="card">
+            <div class="number">387%</div>
+            <div class="label">
+                Renewable Growth Since 2005
+            </div>
+        </div>
+    </div>
+
+    <!-- KEY FINDINGS -->
+    <h2 class="section-title">
+        🔍 Key Findings
+    </h2>
+    <div class="findings">
+        <div class="finding">
+            <h3>🔴 Ireland Off Track For 2030</h3>
+            <p>
+                Current emissions of 53.75 Mt must 
+                fall to 30.13 Mt by 2030 - requiring 
+                a 3.5x acceleration in the current 
+                pace of reduction in just 6 years.
+            </p>
+        </div>
+        <div class="finding">
+            <h3>🐄 Agriculture - Zero Progress</h3>
+            <p>
+                Agricultural emissions in 2024 
+                (20.41 Mt) are virtually identical 
+                to 1990 levels (20.57 Mt). Agriculture 
+                now accounts for 37.97% of total 
+                emissions - nearly 4x the EU average.
+            </p>
+        </div>
+        <div class="finding">
+            <h3>🌱 Renewables Growing Too Slowly</h3>
+            <p>
+                Despite 387% growth since 2005, 
+                renewables reach only 14.6% of total 
+                energy vs a 43% target by 2030. 
+                Ireland is growing renewables 
+                6.7x too slowly!
+            </p>
+        </div>
+        <div class="finding">
+            <h3>🖥️ Data Centre Challenge</h3>
+            <p>
+                Services sector energy consumption 
+                grew 51% (2005-2024) driven by Big 
+                Tech data centres. Ireland uses more 
+                electricity on data centres than 
+                on all urban homes combined.
+            </p>
+        </div>
+        <div class="finding">
+            <h3>📉 COVID Bounce Warning</h3>
+            <p>
+                The 2021 post-COVID emissions rebound 
+                wiped out two years of progress in 
+                one year - highlighting the need for 
+                structural rather than 
+                behavioural change.
+            </p>
+        </div>
+        <div class="finding">
+            <h3>🤖 ML Forecast: Miss Both Targets</h3>
+            <p>
+                Machine learning models forecast 
+                Ireland will reach 52.49 Mt emissions 
+                and 19.39% renewable energy by 2030 - 
+                missing both Climate Action 
+                Plan targets.
+            </p>
+        </div>
+    </div>
+
+    <!-- TOOLS -->
+    <h2 class="section-title">
+        🛠️ Tools & Technologies
+    </h2>
+    <div class="tools">
+        <span class="tool">Python</span>
+        <span class="tool">PostgreSQL</span>
+        <span class="tool">Power BI</span>
+        <span class="tool">pandas</span>
+        <span class="tool">scikit-learn</span>
+        <span class="tool">SQLAlchemy</span>
+        <span class="tool">DAX</span>
+        <span class="tool">Git</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h2>View The Full Project</h2>
+        <p>
+            Explore the code, SQL queries, 
+            ML models and Power BI dashboard
+        </p>
+        <a href="https://github.com/yourusername/ireland-esg-tracker" 
+           class="btn">
+            📂 View Repository
+        </a>
+        <a href="https://github.com/yourusername/ireland-esg-tracker/tree/main/python" 
+           class="btn outline">
+            🐍 Python Code
+        </a>
+        <a href="https://github.com/yourusername/ireland-esg-tracker/tree/main/sql" 
+           class="btn outline">
+            🗄️ SQL Queries
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p>
+        Built by Your Name | 
+        Data: EPA Ireland & SEAI |
+        🌍 Ireland ESG Tracker
+    </p>
+</footer>
+
+</body>
+</html>
