@@ -1,0 +1,281 @@
+sector,year,gas_type,value_mt_co2eq
+National Total,1990,GHG,55.734914
+National Total,1991,GHG,56.501257
+National Total,1992,GHG,56.496276
+National Total,1993,GHG,56.955892
+National Total,1994,GHG,58.274504
+National Total,1995,GHG,59.674943
+National Total,1996,GHG,61.747153
+National Total,1997,GHG,63.070226
+National Total,1998,GHG,65.542232
+National Total,1999,GHG,66.732015
+National Total,2000,GHG,68.856521
+National Total,2001,GHG,70.846448
+National Total,2002,GHG,68.934947
+National Total,2003,GHG,69.365513
+National Total,2004,GHG,68.671525
+National Total,2005,GHG,70.127033
+National Total,2006,GHG,69.241003
+National Total,2007,GHG,68.6191
+National Total,2008,GHG,67.884635
+National Total,2009,GHG,62.100636
+National Total,2010,GHG,61.733284
+National Total,2011,GHG,57.766011
+National Total,2012,GHG,58.284318
+National Total,2013,GHG,57.917108
+National Total,2014,GHG,57.995123
+National Total,2015,GHG,60.325958
+National Total,2016,GHG,62.611187
+National Total,2017,GHG,61.837807
+National Total,2018,GHG,61.490692
+National Total,2019,GHG,59.665738
+National Total,2020,GHG,57.520297
+National Total,2021,GHG,60.103668
+National Total,2022,GHG,58.863198
+National Total,2023,GHG,54.845258
+National Total,2024,GHG,53.751658
+National Total with LULUCF,1990,GHG,60.833866
+National Total with LULUCF,1991,GHG,61.520202
+National Total with LULUCF,1992,GHG,61.311673
+National Total with LULUCF,1993,GHG,62.041548
+National Total with LULUCF,1994,GHG,63.503081
+National Total with LULUCF,1995,GHG,65.903638
+National Total with LULUCF,1996,GHG,67.715528
+National Total with LULUCF,1997,GHG,68.320242
+National Total with LULUCF,1998,GHG,70.778295
+National Total with LULUCF,1999,GHG,72.009024
+National Total with LULUCF,2000,GHG,74.769808
+National Total with LULUCF,2001,GHG,78.08155
+National Total with LULUCF,2002,GHG,75.746774
+National Total with LULUCF,2003,GHG,76.769417
+National Total with LULUCF,2004,GHG,74.759356
+National Total with LULUCF,2005,GHG,76.36471
+National Total with LULUCF,2006,GHG,75.418602
+National Total with LULUCF,2007,GHG,73.80324
+National Total with LULUCF,2008,GHG,72.354824
+National Total with LULUCF,2009,GHG,66.148871
+National Total with LULUCF,2010,GHG,66.856661
+National Total with LULUCF,2011,GHG,61.966169
+National Total with LULUCF,2012,GHG,61.54443
+National Total with LULUCF,2013,GHG,61.831361
+National Total with LULUCF,2014,GHG,62.337182
+National Total with LULUCF,2015,GHG,64.277697
+National Total with LULUCF,2016,GHG,65.62303
+National Total with LULUCF,2017,GHG,66.928453
+National Total with LULUCF,2018,GHG,65.486678
+National Total with LULUCF,2019,GHG,63.792193
+National Total with LULUCF,2020,GHG,62.226926
+National Total with LULUCF,2021,GHG,64.406571
+National Total with LULUCF,2022,GHG,62.51845
+National Total with LULUCF,2023,GHG,58.739801
+National Total with LULUCF,2024,GHG,57.646201
+National Total,1990,CO2,32.9453
+National Total,1991,CO2,33.675165
+National Total,1992,CO2,33.496133
+National Total,1993,CO2,33.717149
+National Total,1994,CO2,34.838994
+National Total,1995,CO2,35.85336
+National Total,1996,CO2,37.469465
+National Total,1997,CO2,38.804936
+National Total,1998,CO2,40.708441
+National Total,1999,CO2,42.440315
+National Total,2000,CO2,45.249517
+National Total,2001,CO2,47.607712
+National Total,2002,CO2,46.081388
+National Total,2003,CO2,45.683965
+National Total,2004,CO2,46.166737
+National Total,2005,CO2,48.152521
+National Total,2006,CO2,47.596944
+National Total,2007,CO2,47.657549
+National Total,2008,CO2,47.361044
+National Total,2009,CO2,42.177069
+National Total,2010,CO2,41.790903
+National Total,2011,CO2,38.054389
+National Total,2012,CO2,38.223918
+National Total,2013,CO2,37.278706
+National Total,2014,CO2,36.849876
+National Total,2015,CO2,38.715396
+National Total,2016,CO2,40.369022
+National Total,2017,CO2,39.040447
+National Total,2018,CO2,38.922365
+National Total,2019,CO2,37.199826
+National Total,2020,CO2,35.052547
+National Total,2021,CO2,37.473664
+National Total,2022,CO2,36.675496
+National Total,2023,CO2,33.550912
+National Total,2024,CO2,32.823325
+National Total with LULUCF,1990,CO2,33.756734
+National Total with LULUCF,1991,CO2,34.463635
+National Total with LULUCF,1992,CO2,34.144017
+National Total with LULUCF,1993,CO2,34.616712
+National Total with LULUCF,1994,CO2,35.886096
+National Total with LULUCF,1995,CO2,37.877244
+National Total with LULUCF,1996,CO2,39.238527
+National Total with LULUCF,1997,CO2,39.951633
+National Total with LULUCF,1998,CO2,41.902468
+National Total with LULUCF,1999,CO2,43.701567
+National Total with LULUCF,2000,CO2,47.1108
+National Total with LULUCF,2001,CO2,50.533446
+National Total with LULUCF,2002,CO2,48.939381
+National Total with LULUCF,2003,CO2,48.863858
+National Total with LULUCF,2004,CO2,48.167791
+National Total with LULUCF,2005,CO2,50.291435
+National Total with LULUCF,2006,CO2,49.711458
+National Total with LULUCF,2007,CO2,48.830022
+National Total with LULUCF,2008,CO2,47.853091
+National Total with LULUCF,2009,CO2,42.26771
+National Total with LULUCF,2010,CO2,42.605948
+National Total with LULUCF,2011,CO2,38.206976
+National Total with LULUCF,2012,CO2,37.616427
+National Total with LULUCF,2013,CO2,37.284673
+National Total with LULUCF,2014,CO2,37.080338
+National Total with LULUCF,2015,CO2,38.839274
+National Total with LULUCF,2016,CO2,39.627043
+National Total with LULUCF,2017,CO2,40.004989
+National Total with LULUCF,2018,CO2,39.048112
+National Total with LULUCF,2019,CO2,37.488863
+National Total with LULUCF,2020,CO2,35.95302
+National Total with LULUCF,2021,CO2,37.928344
+National Total with LULUCF,2022,CO2,36.444712
+National Total with LULUCF,2023,CO2,33.485771
+National Total with LULUCF,2024,CO2,35.732079
+National Total,1990,CH4,16.53426
+National Total,1991,CH4,16.781374
+National Total,1992,CH4,17.002612
+National Total,1993,CH4,17.055502
+National Total,1994,CH4,16.996616
+National Total,1995,CH4,17.049169
+National Total,1996,CH4,17.326612
+National Total,1997,CH4,17.316532
+National Total,1998,CH4,17.585967
+National Total,1999,CH4,17.067157
+National Total,2000,CH4,16.423612
+National Total,2001,CH4,16.458684
+National Total,2002,CH4,16.369927
+National Total,2003,CH4,17.071079
+National Total,2004,CH4,15.994736
+National Total,2005,CH4,15.401996
+National Total,2006,CH4,15.217341
+National Total,2007,CH4,14.678409
+National Total,2008,CH4,14.350308
+National Total,2009,CH4,13.937337
+National Total,2010,CH4,13.722419
+National Total,2011,CH4,13.875585
+National Total,2012,CH4,14.13533
+National Total,2013,CH4,14.349705
+National Total,2014,CH4,14.91912
+National Total,2015,CH4,15.361552
+National Total,2016,CH4,15.811215
+National Total,2017,CH4,16.168051
+National Total,2018,CH4,16.025772
+National Total,2019,CH4,16.155507
+National Total,2020,CH4,16.313391
+National Total,2021,CH4,16.276268
+National Total,2022,CH4,16.281302
+National Total,2023,CH4,15.876617
+National Total,2024,CH4,15.433488
+National Total with LULUCF,1990,CH4,20.626355
+National Total with LULUCF,1991,CH4,20.809251
+National Total with LULUCF,1992,CH4,20.982088
+National Total with LULUCF,1993,CH4,21.040929
+National Total with LULUCF,1994,CH4,20.969643
+National Total with LULUCF,1995,CH4,21.021728
+National Total with LULUCF,1996,CH4,21.292736
+National Total with LULUCF,1997,CH4,21.18799
+National Total with LULUCF,1998,CH4,21.40371
+National Total with LULUCF,1999,CH4,20.861574
+National Total with LULUCF,2000,CH4,20.241433
+National Total with LULUCF,2001,CH4,20.47879
+National Total with LULUCF,2002,CH4,20.075777
+National Total with LULUCF,2003,CH4,21.000345
+National Total with LULUCF,2004,CH4,19.820008
+National Total with LULUCF,2005,CH4,19.233037
+National Total with LULUCF,2006,CH4,19.016736
+National Total with LULUCF,2007,CH4,18.433742
+National Total with LULUCF,2008,CH4,18.071391
+National Total with LULUCF,2009,CH4,17.633173
+National Total with LULUCF,2010,CH4,17.700227
+National Total with LULUCF,2011,CH4,17.638781
+National Total with LULUCF,2012,CH4,17.736743
+National Total with LULUCF,2013,CH4,17.97828
+National Total with LULUCF,2014,CH4,18.711405
+National Total with LULUCF,2015,CH4,18.913587
+National Total with LULUCF,2016,CH4,19.301795
+National Total with LULUCF,2017,CH4,19.968196
+National Total with LULUCF,2018,CH4,19.61645
+National Total with LULUCF,2019,CH4,19.717337
+National Total with LULUCF,2020,CH4,19.847367
+National Total with LULUCF,2021,CH4,19.859898
+National Total with LULUCF,2022,CH4,19.904635
+National Total with LULUCF,2023,CH4,19.569461
+National Total with LULUCF,2024,CH4,19.389848
+National Total,1990,N2O,6.21983
+National Total,1991,N2O,5.995057
+National Total,1992,N2O,5.933732
+National Total,1993,N2O,6.08668
+National Total,1994,N2O,6.303634
+National Total,1995,N2O,6.566963
+National Total,1996,N2O,6.651432
+National Total,1997,N2O,6.542885
+National Total,1998,N2O,6.936972
+National Total,1999,N2O,6.736382
+National Total,2000,N2O,6.476402
+National Total,2001,N2O,6.055662
+National Total,2002,N2O,5.759238
+National Total,2003,N2O,5.690897
+National Total,2004,N2O,5.571628
+National Total,2005,N2O,5.455794
+National Total,2006,N2O,5.325914
+National Total,2007,N2O,5.185541
+National Total,2008,N2O,5.041375
+National Total,2009,N2O,4.892125
+National Total,2010,N2O,5.163104
+National Total,2011,N2O,4.778514
+National Total,2012,N2O,4.898068
+National Total,2013,N2O,5.235608
+National Total,2014,N2O,5.115576
+National Total,2015,N2O,5.153453
+National Total,2016,N2O,5.265341
+National Total,2017,N2O,5.53502
+National Total,2018,N2O,5.754205
+National Total,2019,N2O,5.54138
+National Total,2020,N2O,5.552598
+National Total,2021,N2O,5.707827
+National Total,2022,N2O,5.294993
+National Total,2023,N2O,4.852028
+National Total,2024,N2O,4.913712
+National Total with LULUCF,1990,N2O,6.415253
+National Total with LULUCF,1991,N2O,6.197654
+National Total with LULUCF,1992,N2O,6.121769
+National Total with LULUCF,1993,N2O,6.287346
+National Total with LULUCF,1994,N2O,6.512082
+National Total with LULUCF,1995,N2O,6.799215
+National Total with LULUCF,1996,N2O,6.884622
+National Total with LULUCF,1997,N2O,6.774745
+National Total with LULUCF,1998,N2O,7.161265
+National Total with LULUCF,1999,N2O,6.957722
+National Total with LULUCF,2000,N2O,6.710586
+National Total with LULUCF,2001,N2O,6.344923
+National Total with LULUCF,2002,N2O,6.007222
+National Total with LULUCF,2003,N2O,5.985642
+National Total with LULUCF,2004,N2O,5.833132
+National Total with LULUCF,2005,N2O,5.723516
+National Total with LULUCF,2006,N2O,5.589603
+National Total with LULUCF,2007,N2O,5.441875
+National Total with LULUCF,2008,N2O,5.298435
+National Total with LULUCF,2009,N2O,5.153883
+National Total with LULUCF,2010,N2O,5.493627
+National Total with LULUCF,2011,N2O,5.062889
+National Total with LULUCF,2012,N2O,5.164259
+National Total with LULUCF,2013,N2O,5.51532
+National Total with LULUCF,2014,N2O,5.434889
+National Total with LULUCF,2015,N2O,5.429279
+National Total with LULUCF,2016,N2O,5.528582
+National Total with LULUCF,2017,N2O,5.860977
+National Total with LULUCF,2018,N2O,6.033766
+National Total with LULUCF,2019,N2O,5.816968
+National Total with LULUCF,2020,N2O,5.824779
+National Total with LULUCF,2021,N2O,5.972419
+National Total with LULUCF,2022,N2O,5.557697
+National Total with LULUCF,2023,N2O,5.118867
+National Total with LULUCF,2024,N2O,5.124391

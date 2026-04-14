@@ -1,0 +1,208 @@
+-- Table 1: GHG Emissions by Sector
+CREATE TABLE IF NOT EXISTS ghg_emissions (
+    id              SERIAL PRIMARY KEY,
+    year            INTEGER NOT NULL,
+    sector          VARCHAR(100) NOT NULL,
+    emission_type   VARCHAR(50),        -- CO2, CH4, N2O etc
+    value_mt_co2eq  DECIMAL(10,4),      -- Million tonnes CO2 equivalent
+    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table 2: Renewable Energy Statistics
+CREATE TABLE IF NOT EXISTS renewable_energy (
+    id                      SERIAL PRIMARY KEY,
+    year                    INTEGER NOT NULL,
+    energy_source           VARCHAR(100),   -- Wind, Solar, Hydro etc
+    generation_gwh          DECIMAL(10,4),  -- Gigawatt hours
+    percentage_of_total     DECIMAL(5,2),   -- % of total energy mix
+    created_at              TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table 3: Climate Action Plan Targets (for benchmarking)
+CREATE TABLE IF NOT EXISTS climate_targets (
+    id              SERIAL PRIMARY KEY,
+    target_year     INTEGER NOT NULL,
+    target_name     VARCHAR(200),
+    target_value    DECIMAL(10,4),
+    unit            VARCHAR(50),
+    description     TEXT
+);
+
+-- Table 4: Energy Consumption
+CREATE TABLE IF NOT EXISTS energy_consumption (
+    id              SERIAL PRIMARY KEY,
+    year            INTEGER NOT NULL,
+    sector          VARCHAR(100),
+    source          VARCHAR(100),       -- Gas, Oil, Renewables etc
+    consumption_ktoe DECIMAL(10,4),     -- Kilotonnes of oil equivalent
+    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- Most important ESG insight in the whole project!
+WITH baseline AS (
+    SELECT value_mt_co2eq AS baseline_2018
+    FROM   ghg_national_totals
+    WHERE  sector   = 'National Total'
+    AND    gas_type = 'GHG'
+    AND    year     = 2018
+)
+SELECT
+    g.year,
+    ROUND(g.value_mt_co2eq::numeric, 2)         AS actual_emissions_mt,
+    ROUND((b.baseline_2018 * 0.49)::numeric, 2) AS target_2030_mt,
+    ROUND(
+        (g.value_mt_co2eq - (b.baseline_2018 * 0.49))::numeric, 2
+    )                                            AS gap_to_target_mt,
+    ROUND(
+        ((g.value_mt_co2eq - b.baseline_2018) 
+        / b.baseline_2018 * 100)::numeric, 2
+    )                                            AS pct_reduction_from_2018,
+    CASE 
+        WHEN g.value_mt_co2eq <= (b.baseline_2018 * 0.49) 
+            THEN '✅ Target Met'
+        WHEN g.value_mt_co2eq <= (b.baseline_2018 * 0.65)
+            THEN '🟡 Making Progress'
+        ELSE '🔴 Off Track'
+    END                                          AS status
+FROM  ghg_national_totals g
+CROSS JOIN baseline b
+WHERE g.sector   = 'National Total'
+AND   g.gas_type = 'GHG'
+AND   g.year    >= 2018
+ORDER BY g.year;
+
+
+-- Linking our two datasets together!
+-- Does more renewable = less emissions?
+SELECT
+    g.year,
+    ROUND(g.value_mt_co2eq::numeric, 2)              AS total_emissions_mt,
+    ROUND(e.renewable_pct_of_consumption::numeric, 2) AS renewable_pct,
+    ROUND(e.total_consumption_mtoe::numeric, 2)       AS total_energy_mtoe,
+    CASE
+        WHEN g.value_mt_co2eq < LAG(g.value_mt_co2eq) 
+             OVER (ORDER BY g.year)
+        THEN '📉 Emissions Down'
+        ELSE '📈 Emissions Up'
+    END                                               AS emissions_direction,
+    CASE
+        WHEN e.renewable_pct_of_consumption > LAG(e.renewable_pct_of_consumption) 
+             OVER (ORDER BY g.year)
+        THEN '🌱 Renewables Up'
+        ELSE '⚠️  Renewables Down'
+    END                                               AS renewable_direction
+FROM  ghg_national_totals  g
+JOIN  energy_overview       e ON g.year = e.year
+WHERE g.sector   = 'National Total'
+AND   g.gas_type = 'GHG'
+ORDER BY g.year;
+
+
+-- Which sectors are the biggest problem?
+SELECT
+    sector,
+    ROUND(AVG(value_mt_co2eq)::numeric, 4) AS avg_annual_mt,
+    ROUND(SUM(value_mt_co2eq)::numeric, 2) AS total_all_years_mt,
+    ROUND(
+        (SUM(value_mt_co2eq) 
+        / SUM(SUM(value_mt_co2eq)) OVER () * 100)::numeric, 2
+    )                                       AS pct_of_grand_total,
+    ROUND(
+        (MAX(value_mt_co2eq) - MIN(value_mt_co2eq))::numeric, 4
+    )                                       AS range_mt,
+    CASE
+        WHEN AVG(value_mt_co2eq) > 1.0  THEN '🔴 High Emitter'
+        WHEN AVG(value_mt_co2eq) > 0.3  THEN '🟡 Medium Emitter'
+        ELSE                                  '🟢 Low Emitter'
+    END                                     AS emitter_category
+FROM  ghg_emissions
+WHERE gas_type = 'GHG'
+GROUP BY sector
+ORDER BY avg_annual_mt DESC
+LIMIT 15;
+
+
+-- Agriculture is UNIQUE to Ireland - big ESG story!
+-- CH4 (methane) and N2O (nitrous oxide) from farming
+SELECT
+    e.year,
+    ROUND(SUM(CASE WHEN e.gas_type = 'CH4' 
+              AND  e.sector = 'Agriculture'
+              THEN e.value_mt_co2eq ELSE 0 END)::numeric, 4) AS agri_ch4_mt,
+    ROUND(SUM(CASE WHEN e.gas_type = 'N2O' 
+              AND  e.sector = 'Agriculture'
+              THEN e.value_mt_co2eq ELSE 0 END)::numeric, 4) AS agri_n2o_mt,
+    ROUND(SUM(CASE WHEN e.gas_type = 'GHG' 
+              AND  e.sector = 'Agriculture'
+              THEN e.value_mt_co2eq ELSE 0 END)::numeric, 4) AS agri_total_mt,
+    ROUND(n.value_mt_co2eq::numeric, 2)                      AS national_total_mt,
+    ROUND(
+        (SUM(CASE WHEN e.gas_type = 'GHG' AND e.sector = 'Agriculture'
+             THEN e.value_mt_co2eq ELSE 0 END) 
+        / n.value_mt_co2eq * 100)::numeric, 2
+    )                                                         AS agri_pct_of_national
+FROM  ghg_emissions        e
+JOIN  ghg_national_totals  n 
+      ON  e.year      = n.year
+      AND n.sector    = 'National Total'
+      AND n.gas_type  = 'GHG'
+GROUP BY e.year, n.value_mt_co2eq
+ORDER BY e.year;
+
+
+-- How has each sector's energy use changed?
+SELECT
+    sector,
+    ROUND(MAX(CASE WHEN year = 2005 
+              THEN consumption_mtoe END)::numeric, 3) AS consumption_2005,
+    ROUND(MAX(CASE WHEN year = 2015 
+              THEN consumption_mtoe END)::numeric, 3) AS consumption_2015,
+    ROUND(MAX(CASE WHEN year = 2024 
+              THEN consumption_mtoe END)::numeric, 3) AS consumption_2024,
+    ROUND(
+        ((MAX(CASE WHEN year = 2024 THEN consumption_mtoe END) -
+          MAX(CASE WHEN year = 2005 THEN consumption_mtoe END)) /
+          MAX(CASE WHEN year = 2005 THEN consumption_mtoe END) * 100
+        )::numeric, 2
+    )                                                  AS pct_change_2005_2024,
+    CASE
+        WHEN (MAX(CASE WHEN year = 2024 THEN consumption_mtoe END) -
+              MAX(CASE WHEN year = 2005 THEN consumption_mtoe END)) < 0
+        THEN '✅ Reduced'
+        ELSE '⚠️  Increased'
+    END                                                AS trend
+FROM energy_balance
+GROUP BY sector
+ORDER BY consumption_2024 DESC;
+
+
+-- Everything in one query - great for Power BI!
+SELECT
+    g.year,
+    -- Emissions
+    ROUND(g.value_mt_co2eq::numeric, 2)               AS national_ghg_mt,
+    -- Renewable
+    ROUND(r.renewable_gen_ktoe::numeric, 2)            AS renewable_ktoe,
+    ROUND(o.renewable_pct_of_consumption::numeric, 2)  AS renewable_pct,
+    -- Energy
+    ROUND(o.total_consumption_mtoe::numeric, 2)        AS total_energy_mtoe,
+    -- 2030 Target
+    ROUND((61.49 * 0.49)::numeric, 2)                 AS target_2030_mt,
+    ROUND(
+        (g.value_mt_co2eq - (61.49 * 0.49))::numeric, 2
+    )                                                  AS gap_to_target_mt,
+    -- Status
+    CASE
+        WHEN g.value_mt_co2eq <= (61.49 * 0.49) 
+            THEN '✅ Target Met'
+        WHEN g.value_mt_co2eq <= (61.49 * 0.65)
+            THEN '🟡 Progress'
+        ELSE '🔴 Off Track'
+    END                                                AS target_status
+FROM  ghg_national_totals  g
+JOIN  energy_overview       o ON g.year = o.year
+JOIN  renewable_energy      r ON g.year = r.year
+WHERE g.sector   = 'National Total'
+AND   g.gas_type = 'GHG'
+ORDER BY g.year;
