@@ -305,10 +305,9 @@ pip install pandas numpy matplotlib seaborn
 
 ## 👤 Author
 ```
-Your Name
+Sajan Yerra
 ESG Data Analyst
-LinkedIn: your-linkedin-url
-GitHub:   your-github-url
+LinkedIn: (https://www.linkedin.com/in/sajanyerra/)
 ```
 
 ---
